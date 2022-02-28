@@ -1,0 +1,17 @@
+
+
+.jumbotron{
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)), url('https://media.istockphoto.com/photos/various-kinds-of-vegan-protein-sources-picture-id1253826894');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-input{
+    width: 60% !important;
+}
