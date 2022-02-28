@@ -4,6 +4,7 @@ import axios from 'axios'
 import './Home.css'
 
 import Jumbotron from '../../components/Jumbotron/Jumbotron';
+import MealsContainer from '../../components/MealsContainer/MealsContainer';
 
 
 
@@ -39,6 +40,8 @@ const Home = () => {
     return (
         <div>
             <Jumbotron />
+            {isloading ? <h1 style={{ textAlign: 'center', color: 'pink' }}>Loading...</h1> :
+                <MealsContainer Meals={Meals} />}
         </div>
     )
 }
