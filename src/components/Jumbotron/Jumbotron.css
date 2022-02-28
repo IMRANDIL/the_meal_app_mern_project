@@ -1,7 +1,7 @@
 
 
 .jumbotron{
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)), url('https://media.istockphoto.com/photos/various-kinds-of-vegan-protein-sources-picture-id1253826894');
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)), url('https://media.istockphoto.com/photos/healthy-food-clean-eating-selection-picture-id854725402');
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,6 +9,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.jumbotron h1, h2{
+    color: rgba(255, 255, 255, 0.651) !important;
 }
 
 

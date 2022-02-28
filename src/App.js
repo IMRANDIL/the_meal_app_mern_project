@@ -1,16 +1,27 @@
-
+import React, { useEffect } from 'react';
 import './App.css';
 
 
 import NavbarElem from './components/Navbar/Navbar';
 
-import Jumbotron from './components/Jumbotron/Jumbotron'
+
+import Home from './pages/Home/Home';
+
+
+
+
+
 
 function App() {
+
+
+
+
+
   return (
     <div>
       <NavbarElem />
-      <Jumbotron />
+      <Home />
 
     </div>
   );
