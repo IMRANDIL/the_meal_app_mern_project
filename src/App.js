@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import NotFound from './pages/NotFound/NotFound';
 import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
 
 
 
@@ -38,6 +39,7 @@ function App() {
           <Route path='*' element={<NotFound />} />
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
 
 
         </Routes>
