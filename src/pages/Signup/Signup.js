@@ -37,11 +37,13 @@ const Signup = () => {
 
 
             const { data } = await axios.post('http://localhost:5000/users', { userName, email, password });
+
             setUser(data)
             navigate('/login')
-            console.log(data);
+
         } catch (error) {
-            console.log(error);
+            return setError('Email Already Exists!!')
+
         }
 
 
@@ -56,7 +58,7 @@ const Signup = () => {
 
     return (
         <Form onSubmit={handleSignup}>
-            <h3 style={{ textAlign: 'center', color: 'firebrick', marginTop: '7px' }}>{error}</h3>
+            <h3 style={{ textAlign: 'center', color: 'firebrick', marginTop: '12px' }}>{error}</h3>
             <Form.Group className="mb-3" controlId="formBasicUser">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" placeholder="Enter userName" value={userName} onChange={(e) => setUserName(e.target.value)} autoComplete='off' />
