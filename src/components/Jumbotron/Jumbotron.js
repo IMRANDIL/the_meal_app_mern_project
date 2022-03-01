@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 
 import './Jumbotron.css'
 
@@ -14,9 +14,9 @@ import axios from 'axios'
 
 const Jumbotron = () => {
 
-    const [searchInput, setSearchInput] = useState('')
 
-    const { setMeals, setIsLoading } = useContext(myContext)
+
+    const { setMeals, setIsLoading, searchInput, setSearchInput } = useContext(myContext)
 
 
 

@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { LinkContainer } from 'react-router-bootstrap'
 import { Container, Nav, Navbar } from 'react-bootstrap'
+import { myContext } from '../../context';
+
+import axios from 'axios';
+
+
+
 
 const NavbarElem = () => {
+
+
+    const { setMeals, setIsLoading, setSearchInput } = useContext(myContext)
+
+
+    const handleBrand = async () => {
+        setIsLoading(true)
+        const { data: { meals } } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=a`);
+        setMeals(meals);
+        setIsLoading(false);
+        setSearchInput('')
+    }
+
     return (
         <Navbar bg="light" expand="lg">
             <Container>
                 <LinkContainer to='/'>
-                    <Navbar.Brand>The_Meals</Navbar.Brand>
+                    <Navbar.Brand onClick={handleBrand}>The_Meals</Navbar.Brand>
                 </LinkContainer>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
