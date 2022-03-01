@@ -5,7 +5,7 @@ import { Button, Modal } from 'react-bootstrap';
 
 
 
-const MealModal = () => {
+const MealModal = ({ strMeal, strInstructions }) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -14,14 +14,14 @@ const MealModal = () => {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+                See More
             </Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>{strMeal}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>{strInstructions}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close

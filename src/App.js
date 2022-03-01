@@ -11,21 +11,41 @@ import Home from './pages/Home/Home';
 import AppContext from './context';
 
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import NotFound from './pages/NotFound/NotFound';
+import Login from './pages/Login/Login';
+
+
+
+
+
+
+
+
 
 function App() {
 
-
-
-
-
   return (
-    <AppContext>
-      <div>
-        <NavbarElem />
-        <Home />
+    <BrowserRouter>
+      <AppContext>
 
-      </div>
-    </AppContext>
+        <NavbarElem />
+        <Routes>
+          <Route path='*' element={<NotFound />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+
+
+        </Routes>
+
+
+
+      </AppContext>
+    </BrowserRouter>
   );
 }
 
