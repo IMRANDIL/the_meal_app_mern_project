@@ -8,7 +8,7 @@ import NavbarElem from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 
 
-
+import AppContext from './context';
 
 
 
@@ -19,11 +19,13 @@ function App() {
 
 
   return (
-    <div>
-      <NavbarElem />
-      <Home />
+    <AppContext>
+      <div>
+        <NavbarElem />
+        <Home />
 
-    </div>
+      </div>
+    </AppContext>
   );
 }
 

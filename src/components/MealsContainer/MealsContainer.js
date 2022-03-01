@@ -8,13 +8,16 @@ import './MealsContainer.css'
 
 const MealsContainer = ({ Meals }) => {
     return (
-        <div className='meals-container'>
-            {Meals.map((meal) => {
-                return (
-                    <div key={meal.idMeal}><MealCard meal={meal} /></div>
-                )
-            })}
-        </div>
+        <>
+            {Meals ?
+                <div className='meals-container'>
+                    {Meals.map((meal) => {
+                        return (
+
+                            <div key={meal.idMeal}><MealCard meal={meal} /></div>
+                        )
+                    })}
+                </div> : <h1 style={{ textAlign: 'center', marginTop: '7px', color: 'red' }}>No Such Meal Exists...</h1>}</>
     )
 }
 

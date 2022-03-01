@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import axios from 'axios'
 import './Home.css'
 
 import Jumbotron from '../../components/Jumbotron/Jumbotron';
 import MealsContainer from '../../components/MealsContainer/MealsContainer';
+import { myContext } from '../../context';
 
 
 
@@ -14,8 +15,8 @@ import MealsContainer from '../../components/MealsContainer/MealsContainer';
 
 const Home = () => {
 
-    const [Meals, setMeals] = useState([]);
-    const [isloading, setIsLoading] = useState(true)
+    const { Meals, setMeals, isloading, setIsLoading } = useContext(myContext)
+
 
     useEffect(() => {
 
@@ -33,14 +34,14 @@ const Home = () => {
         }
 
 
-    }, [])
+    }, [setMeals, setIsLoading])
 
-    console.log(Meals);
+
 
     return (
         <div>
             <Jumbotron />
-            {isloading ? <h1 style={{ textAlign: 'center', color: 'pink' }}>Loading...</h1> :
+            {isloading ? <h1 style={{ textAlign: 'center', color: 'pink', marginTop: '7px' }}>Loading...</h1> :
                 <MealsContainer Meals={Meals} />}
         </div>
     )
