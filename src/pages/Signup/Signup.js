@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios'
+import { myContext } from '../../context';
 
 
 
@@ -22,7 +23,7 @@ const Signup = () => {
 
 
 
-
+    const { setUser } = useContext(myContext)
 
 
     const handleSignup = async (e) => {
@@ -36,6 +37,7 @@ const Signup = () => {
 
 
             const { data } = await axios.post('http://localhost:5000/users', { userName, email, password });
+            setUser(data)
             navigate('/login')
             console.log(data);
         } catch (error) {
