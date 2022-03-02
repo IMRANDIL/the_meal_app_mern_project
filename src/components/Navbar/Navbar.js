@@ -29,7 +29,8 @@ const NavbarElem = () => {
 
 
     const handleLogout = () => {
-        axios.post('/logout').then((res) => {
+        axios.post('/logout').then(() => {
+
             localStorage.removeItem('token');
             setUser(null);
             return navigate('/')
@@ -65,7 +66,7 @@ const NavbarElem = () => {
 
                     {user && (
 
-                        <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                        <Nav.Link onClick={handleLogout} className='ms-auto'>Logout</Nav.Link>
 
 
                     )}

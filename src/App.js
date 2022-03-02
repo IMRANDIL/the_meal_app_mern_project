@@ -42,7 +42,7 @@ function App() {
     const authLogin = async () => {
       try {
         const { data } = await axios.post('/auto-login');
-        setUser(data)
+        return setUser(data)
       } catch (error) {
         console.log(error.response.data);
       }
