@@ -17,13 +17,11 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const [userName, setUserName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('')
 
 
 
-    const { setUser } = useContext(myContext)
+
+    const { setUser, email, setEmail, password, setPassword, error, setError } = useContext(myContext)
 
 
     const handleSignup = async (e) => {
@@ -38,8 +36,11 @@ const Signup = () => {
 
             const { data } = await axios.post('http://localhost:5000/users', { userName, email, password });
 
-            setUser(data)
+            setUser(data);
+
+
             navigate('/login');
+
 
 
         } catch (error) {
@@ -71,7 +72,7 @@ const Signup = () => {
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete='off' />
+                <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} autoComplete='off' />
                 <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                 </Form.Text>
@@ -79,13 +80,11 @@ const Signup = () => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete='off' />
+                <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} autoComplete='off' />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
+
             <Button variant="primary" type="submit">
-                Submit
+                Signup
             </Button>
         </Form>
     )

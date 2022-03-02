@@ -11,7 +11,7 @@ import axios from 'axios';
 const NavbarElem = () => {
 
 
-    const { setMeals, setIsLoading, setSearchInput } = useContext(myContext)
+    const { setMeals, setIsLoading, setSearchInput, setError } = useContext(myContext)
 
 
     const handleBrand = async () => {
@@ -19,7 +19,8 @@ const NavbarElem = () => {
         const { data: { meals } } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=a`);
         setMeals(meals);
         setIsLoading(false);
-        setSearchInput('')
+        setSearchInput('');
+        setError('')
     }
 
     return (
@@ -35,7 +36,7 @@ const NavbarElem = () => {
 
 
                         <LinkContainer to='/login'>
-                            <Nav.Link>Login</Nav.Link>
+                            <Nav.Link onClick={handleBrand}>Login</Nav.Link>
 
                         </LinkContainer>
 
