@@ -32,22 +32,22 @@ const NavbarElem = () => {
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    {!user &&
-                        <Nav className=" ms-auto">
+
+                    <Nav className=" ms-auto">
 
 
-                            <LinkContainer to='/login'>
-                                <Nav.Link onClick={handleBrand}>Login</Nav.Link>
+                        <LinkContainer to='/login'>
+                            <Nav.Link onClick={handleBrand}>Login</Nav.Link>
 
-                            </LinkContainer>
+                        </LinkContainer>
 
-                            <LinkContainer to='/signup'>
-                                <Nav.Link>Signup</Nav.Link>
+                        <LinkContainer to='/signup'>
+                            <Nav.Link>Signup</Nav.Link>
 
-                            </LinkContainer>
+                        </LinkContainer>
 
 
-                        </Nav>}
+                    </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

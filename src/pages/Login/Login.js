@@ -37,17 +37,17 @@ const Login = () => {
             }
 
 
-            const { data } = await axios.post('http://localhost:5000/login', { email, password });
+            const data = await axios.post('http://localhost:5000/login', { email, password });
             console.log(data);
 
 
-            setUser(data)
-            navigate('/');
+            // setUser(data)
+            // navigate('/');
 
 
         } catch (error) {
             // console.log(error.response);
-            return setLoginErr(error.response.data.msg)
+            return setLoginErr(error.response.data)
             // console.log(error.response.data.error);
 
         }

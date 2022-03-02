@@ -35,16 +35,18 @@ const Signup = () => {
 
 
             const { data } = await axios.post('http://localhost:5000/users', { userName, email, password });
-
+            console.log(data);
+            // console.log(data);
             setUser(data);
 
 
-            navigate('/login');
+            return navigate('/login');
 
 
 
         } catch (error) {
-            return setError(error.response.data.error)
+
+            return setError(error.response.data)
             // console.log(error.response.data.error);
 
         }
