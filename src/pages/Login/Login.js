@@ -38,11 +38,11 @@ const Login = () => {
 
 
             const { data } = await axios.post('/login', { email, password });
-            console.log(data);
+            // console.log(data);
 
             localStorage.setItem('token', data.token)
             setUser(data)
-            // navigate('/');
+            navigate('/');
 
 
         } catch (error) {

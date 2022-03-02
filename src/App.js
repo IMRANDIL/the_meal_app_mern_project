@@ -40,8 +40,13 @@ function App() {
   useEffect(() => {
 
     const authLogin = async () => {
-      const { data } = await axios.post('/auto-login');
-      setUser(data)
+      try {
+        const { data } = await axios.post('/auto-login');
+        setUser(data)
+      } catch (error) {
+        console.log(error.response.data);
+      }
+
 
     }
     authLogin()
@@ -59,10 +64,12 @@ function App() {
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<Home />} />
 
-
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-
+        {!user &&
+          <>
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+          </>
+        }
 
 
       </Routes>

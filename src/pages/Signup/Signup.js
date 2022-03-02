@@ -39,7 +39,7 @@ const Signup = () => {
             setUser(data);
 
 
-            return navigate('/login');
+            return navigate('/');
 
 
 
