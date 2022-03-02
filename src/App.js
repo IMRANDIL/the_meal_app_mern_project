@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 
 
@@ -8,7 +8,7 @@ import NavbarElem from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 
 
-import AppContext from './context';
+import { myContext } from './context';
 
 
 import {
@@ -30,23 +30,30 @@ import Signup from './pages/Signup/Signup';
 
 function App() {
 
+
+
+  const { user } = useContext(myContext)
+
   return (
     <BrowserRouter>
-      <AppContext>
-
-        <NavbarElem />
-        <Routes>
-          <Route path='*' element={<NotFound />} />
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
 
 
-        </Routes>
+      <NavbarElem />
+      <Routes>
+        <Route path='*' element={<NotFound />} />
+        <Route path='/' element={<Home />} />
+        {!user &&
+          <>
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+          </>}
+
+
+      </Routes>
 
 
 
-      </AppContext>
+
     </BrowserRouter>
   );
 }

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { myContext } from '../../context'
 
 
@@ -13,6 +14,9 @@ import { myContext } from '../../context'
 
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
     const [loginErr, setLoginErr] = useState('')
 
 
@@ -33,12 +37,12 @@ const Login = () => {
             }
 
 
-            const data = await axios.post('http://localhost:5000/login', { email, password });
-            return setLoginErr('')
+            const { data } = await axios.post('http://localhost:5000/login', { email, password });
+            console.log(data);
 
 
-            // setUser(data)
-            // // navigate('/login');
+            setUser(data)
+            navigate('/');
 
 
         } catch (error) {
@@ -51,6 +55,7 @@ const Login = () => {
 
 
     }
+
 
 
 

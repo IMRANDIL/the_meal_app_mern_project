@@ -11,7 +11,7 @@ import axios from 'axios';
 const NavbarElem = () => {
 
 
-    const { setMeals, setIsLoading, setSearchInput, setError } = useContext(myContext)
+    const { setMeals, setIsLoading, setSearchInput, setError, user } = useContext(myContext)
 
 
     const handleBrand = async () => {
@@ -32,21 +32,22 @@ const NavbarElem = () => {
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className=" ms-auto">
+                    {!user &&
+                        <Nav className=" ms-auto">
 
 
-                        <LinkContainer to='/login'>
-                            <Nav.Link onClick={handleBrand}>Login</Nav.Link>
+                            <LinkContainer to='/login'>
+                                <Nav.Link onClick={handleBrand}>Login</Nav.Link>
 
-                        </LinkContainer>
+                            </LinkContainer>
 
-                        <LinkContainer to='/signup'>
-                            <Nav.Link>Signup</Nav.Link>
+                            <LinkContainer to='/signup'>
+                                <Nav.Link>Signup</Nav.Link>
 
-                        </LinkContainer>
+                            </LinkContainer>
 
 
-                    </Nav>
+                        </Nav>}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
