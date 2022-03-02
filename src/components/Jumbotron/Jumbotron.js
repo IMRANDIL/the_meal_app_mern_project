@@ -4,7 +4,6 @@ import './Jumbotron.css'
 
 import { InputGroup, FormControl, Button } from 'react-bootstrap'
 import { myContext } from '../../context'
-import axios from 'axios'
 
 
 
@@ -22,7 +21,8 @@ const Jumbotron = () => {
 
     const handleSearch = async () => {
         setIsLoading(true)
-        const { data: { meals } } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`);
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`);
+        const { meals } = await response.json();
         setMeals(meals);
         setIsLoading(false)
     }

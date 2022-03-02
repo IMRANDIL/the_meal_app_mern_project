@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 
-import axios from 'axios'
+import axios from '../../Axios'
 import { myContext } from '../../context';
 
 
@@ -34,9 +34,8 @@ const Signup = () => {
             }
 
 
-            const { data } = await axios.post('http://localhost:5000/users', { userName, email, password });
-            console.log(data);
-            // console.log(data);
+            const { data } = await axios.post('/users', { userName, email, password });
+            localStorage.setItem('token', data.token)
             setUser(data);
 
 

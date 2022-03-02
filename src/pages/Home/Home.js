@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 
-import axios from 'axios'
+
 import './Home.css'
 
 import Jumbotron from '../../components/Jumbotron/Jumbotron';
@@ -22,7 +22,10 @@ const Home = () => {
 
         try {
             const fetchMeal = async () => {
-                const { data: { meals } } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=a`);
+                const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=a`);
+
+                const { meals } = await response.json();
+
                 setMeals(meals);
                 setIsLoading(false)
 

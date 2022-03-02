@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './App.css';
 
 
@@ -20,7 +20,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 
-
+import axios from './Axios'
 
 
 
@@ -32,7 +32,23 @@ function App() {
 
 
 
-  const { user } = useContext(myContext)
+  const { user, setUser } = useContext(myContext);
+
+
+
+
+  useEffect(() => {
+
+    const authLogin = async () => {
+      const { data } = await axios.post('/auto-login');
+      setUser(data)
+
+    }
+    authLogin()
+
+
+  }, [setUser])
+
 
   return (
     <BrowserRouter>

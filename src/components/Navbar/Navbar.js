@@ -3,7 +3,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import { myContext } from '../../context';
 
-import axios from 'axios';
+
 
 
 
@@ -16,7 +16,8 @@ const NavbarElem = () => {
 
     const handleBrand = async () => {
         setIsLoading(true)
-        const { data: { meals } } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=a`);
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=a`);
+        const { meals } = await response.json();
         setMeals(meals);
         setIsLoading(false);
         setSearchInput('');

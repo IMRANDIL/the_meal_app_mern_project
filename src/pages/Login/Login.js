@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../Axios'
 import React, { useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
@@ -37,11 +37,11 @@ const Login = () => {
             }
 
 
-            const data = await axios.post('http://localhost:5000/login', { email, password });
+            const { data } = await axios.post('/login', { email, password });
             console.log(data);
 
-
-            // setUser(data)
+            localStorage.setItem('token', data.token)
+            setUser(data)
             // navigate('/');
 
 
