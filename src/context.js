@@ -11,9 +11,10 @@ const AppContext = ({ children }) => {
     const [user, setUser] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const [fav, setFav] = useState([])
 
-    return <myContext.Provider value={{ Meals, setMeals, isloading, setIsLoading, searchInput, setSearchInput, user, setUser, email, setEmail, password, setPassword, error, setError }}>
+    return <myContext.Provider value={{ Meals, setMeals, fav,setFav, isloading, setIsLoading, searchInput, setSearchInput, user, setUser, email, setEmail, password, setPassword, error, setError }}>
         {children}
     </myContext.Provider>
 }

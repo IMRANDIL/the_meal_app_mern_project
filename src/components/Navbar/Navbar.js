@@ -38,10 +38,14 @@ const NavbarElem = () => {
     }
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" fixed='top' style={{
+
+            zIndex: '2400'
+
+        }}>
             <Container>
-                <LinkContainer to='/'>
-                    <Navbar.Brand onClick={handleBrand}>The_Meals</Navbar.Brand>
+                <LinkContainer to='/' style={{ fontSize: '30px' }}>
+                    <Navbar.Brand onClick={handleBrand} >The_Meals</Navbar.Brand>
                 </LinkContainer>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -50,12 +54,12 @@ const NavbarElem = () => {
                         <Nav className=" ms-auto">
 
 
-                            <LinkContainer to='/login'>
+                            <LinkContainer to='/login' style={{ fontSize: '20px' }}>
                                 <Nav.Link onClick={handleBrand}>Login</Nav.Link>
 
                             </LinkContainer>
 
-                            <LinkContainer to='/signup'>
+                            <LinkContainer to='/signup' style={{ fontSize: '20px' }}>
                                 <Nav.Link>Signup</Nav.Link>
 
                             </LinkContainer>
@@ -68,11 +72,11 @@ const NavbarElem = () => {
 
                         <>
 
-                            <LinkContainer to='/favourites'>
-                                <Nav.Link onClick={handleBrand} className='ms-auto'>Favourites</Nav.Link>
+                            <LinkContainer to='/favourites' style={{ color: 'black', fontSize: '20px' }}>
+                                <Nav.Link onClick={handleBrand} className='ms-auto' >Favourites</Nav.Link>
 
                             </LinkContainer>
-                            <Nav.Link onClick={handleLogout} className='ms-auto'>Logout</Nav.Link>
+                            <Nav.Link onClick={handleLogout} className='ms-auto' style={{ color: 'red', fontSize: '20px' }}>Logout</Nav.Link>
 
                         </>
                     )}

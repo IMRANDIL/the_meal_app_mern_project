@@ -6,9 +6,10 @@
     /* align-items: center; */
     flex-direction: column;
    background-color: rgba(0, 0, 0, 0.048);
-  margin: 40px auto;
+  margin: 102px auto;
   padding: 20px;
   width: 80%;
+
   border: 2px solid white;
   border-radius: 10px;
     

@@ -14,7 +14,7 @@ const MealsContainer = ({ Meals }) => {
                     {Meals.map((meal) => {
                         return (
 
-                            <div key={meal.idMeal}><MealCard meal={meal} /></div>
+                            <div key={meal.idMeal}><MealCard {...meal} /></div>
                         )
                     })}
                 </div> : <h1 style={{ textAlign: 'center', marginTop: '17px', color: 'white' }}>No Such Meal Exists...</h1>}</>

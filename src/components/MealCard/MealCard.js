@@ -7,7 +7,7 @@ import './MealCard.css'
 
 
 
-const MealCard = ({ meal: { strMeal, strMealThumb, strInstructions, idMeal } }) => {
+const MealCard = ({ strMeal, strMealThumb, strInstructions, idMeal }) => {
     return (
         <Card style={{ width: '18rem', marginTop: '8px' }}>
             <Card.Img variant="top" src={strMealThumb} />
