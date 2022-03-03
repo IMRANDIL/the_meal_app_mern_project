@@ -23,7 +23,11 @@ const MealModal = ({ strMeal, strInstructions, idMeal }) => {
     const [showmsg, setShowMsg] = useState('')
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        setShow(true);
+        setShowMsg('')
+
+    };
 
 
 
