@@ -4,7 +4,7 @@ import { Button, Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { myContext } from '../../context'
 
-
+import './Login.css'
 
 
 
@@ -64,23 +64,23 @@ const Login = () => {
 
     return (
 
-        <Form onSubmit={handleLogin}>
+        <Form onSubmit={handleLogin} className='form'>
 
             <h3 style={{ textAlign: 'center', color: 'firebrick', marginTop: '12px' }}>{loginErr}</h3>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" autoComplete='off' onChange={(e) => setEmail(e.target.value)} />
-                <Form.Text className="text-muted">
+                <Form.Label style={{ color: 'white' }}>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" autoComplete='off' onChange={(e) => setEmail(e.target.value)} style={{ borderRadius: '5px' }} />
+                <Form.Text className="text-muted" style={{ fontSize: '20px' }}>
                     We'll never share your email with anyone else.
                 </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" autoComplete='off' onChange={(e) => setPassword(e.target.value)} />
+                <Form.Label style={{ color: 'white' }}>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" autoComplete='off' onChange={(e) => setPassword(e.target.value)} style={{ borderRadius: '5px' }} />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" style={{ marginTop: '25px' }}>
                 Login
             </Button>
         </Form>

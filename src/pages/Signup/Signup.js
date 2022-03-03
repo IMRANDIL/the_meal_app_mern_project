@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
-
+import './Signup.css'
 import axios from '../../Axios'
 import { myContext } from '../../context';
 
@@ -61,30 +61,30 @@ const Signup = () => {
 
 
     return (
-        <Form onSubmit={handleSignup}>
+        <Form onSubmit={handleSignup} className='form'>
             <h3 style={{ textAlign: 'center', color: 'firebrick', marginTop: '12px' }}>{error}</h3>
             <Form.Group className="mb-3" controlId="formBasicUser">
-                <Form.Label>Username</Form.Label>
+                <Form.Label style={{ color: 'white' }}>Username</Form.Label>
                 <Form.Control type="text" placeholder="Enter userName" value={userName} onChange={(e) => setUserName(e.target.value)} autoComplete='off' />
-                <Form.Text className="text-muted">
+                <Form.Text className="text-muted" style={{ fontSize: '20px' }}>
                     We'll never share your email with anyone else.
                 </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label style={{ color: 'white' }}>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} autoComplete='off' />
-                <Form.Text className="text-muted">
+                <Form.Text className="text-muted" style={{ fontSize: '20px' }}>
                     We'll never share your email with anyone else.
                 </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label style={{ color: 'white' }}>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} autoComplete='off' />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" style={{ marginTop: '25px' }}>
                 Signup
             </Button>
         </Form>
