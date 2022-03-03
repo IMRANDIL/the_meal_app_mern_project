@@ -17,7 +17,7 @@ const MealsContainer = ({ Meals }) => {
                             <div key={meal.idMeal}><MealCard meal={meal} /></div>
                         )
                     })}
-                </div> : <h1 style={{ textAlign: 'center', marginTop: '7px', color: 'red' }}>No Such Meal Exists...</h1>}</>
+                </div> : <h1 style={{ textAlign: 'center', marginTop: '17px', color: 'white' }}>No Such Meal Exists...</h1>}</>
     )
 }
 
