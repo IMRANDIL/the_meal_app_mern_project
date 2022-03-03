@@ -15,11 +15,12 @@ import axios from '../../Axios'
 const MealModal = ({ strMeal, strInstructions, idMeal }) => {
 
 
-    const { user } = useContext(myContext)
+    const { user, setUser } = useContext(myContext)
 
 
 
     const [show, setShow] = useState(false);
+    const [showmsg, setShowMsg] = useState('')
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -28,7 +29,36 @@ const MealModal = ({ strMeal, strInstructions, idMeal }) => {
 
     const handleAddFavourites = () => {
 
-        axios.post(`/favourites/`, { mealId: idMeal }).then((res) => console.log(res)).catch((err) => console.log(err))
+        axios.post(`/add-favourites`, { mealId: idMeal }).then(({ data }) => {
+            setUser(data);
+            setShowMsg('Meal Added to the Favourites')
+
+
+
+        }
+        ).catch((err) => console.log(err))
+
+
+    }
+
+
+
+
+
+
+
+
+
+    const handleRemoveFav = () => {
+
+        axios.post(`/remove-favourites/`, { mealId: idMeal }).then(({ data }) => {
+            setUser(data);
+            setShowMsg('Meal removed from the Favourites')
+
+
+
+        }
+        ).catch((err) => console.log(err))
 
 
     }
@@ -44,6 +74,7 @@ const MealModal = ({ strMeal, strInstructions, idMeal }) => {
             </Button>
 
             <Modal show={show} onHide={handleClose}>
+                {showmsg && <h4 style={{ textAlign: 'center', color: 'red' }}>{showmsg}</h4>}
                 <Modal.Header closeButton>
                     <Modal.Title>{strMeal}</Modal.Title>
                 </Modal.Header>
@@ -52,10 +83,17 @@ const MealModal = ({ strMeal, strInstructions, idMeal }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    {user &&
-                        <Button variant="primary" onClick={handleAddFavourites}>
-                            Add to Favourites
-                        </Button>}
+
+
+                    {user && (
+                        <>
+                            {user.favourites.includes(idMeal) ?
+
+                                <Button variant='danger' onClick={handleRemoveFav}>Remove Favourites</Button> : <Button variant="primary" onClick={handleAddFavourites}>
+                                    Add to Favourites
+                                </Button>}
+                        </>
+                    )}
                 </Modal.Footer>
             </Modal>
         </>
