@@ -1,15 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Button, Modal } from 'react-bootstrap';
 
 
+import { myContext } from '../../context'
+
+
+import axios from '../../Axios'
 
 
 
-const MealModal = ({ strMeal, strInstructions }) => {
+
+
+
+const MealModal = ({ strMeal, strInstructions, idMeal }) => {
+
+
+    const { user } = useContext(myContext)
+
+
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
+
+    const handleAddFavourites = () => {
+
+        axios.post(`/favourites/`, { mealId: idMeal }).then((res) => console.log(res)).catch((err) => console.log(err))
+
+
+    }
+
+
+
+
 
     return (
         <>
@@ -26,9 +52,10 @@ const MealModal = ({ strMeal, strInstructions }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
+                    {user &&
+                        <Button variant="primary" onClick={handleAddFavourites}>
+                            Add to Favourites
+                        </Button>}
                 </Modal.Footer>
             </Modal>
         </>

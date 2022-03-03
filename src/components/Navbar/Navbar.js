@@ -66,9 +66,15 @@ const NavbarElem = () => {
 
                     {user && (
 
-                        <Nav.Link onClick={handleLogout} className='ms-auto'>Logout</Nav.Link>
+                        <>
 
+                            <LinkContainer to='/favourites'>
+                                <Nav.Link onClick={handleBrand} className='ms-auto'>Favourites</Nav.Link>
 
+                            </LinkContainer>
+                            <Nav.Link onClick={handleLogout} className='ms-auto'>Logout</Nav.Link>
+
+                        </>
                     )}
                 </Navbar.Collapse>
             </Container>

@@ -21,6 +21,7 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 
 import axios from './Axios'
+import Favourites from './pages/Favourites/Favourites';
 
 
 
@@ -69,6 +70,13 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
           </>
+        }
+
+
+        {
+          user && (
+            <Route path='/favourites' element={<Favourites />} />
+          )
         }
 
 
